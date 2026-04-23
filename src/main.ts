@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
 import { join } from 'path';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
@@ -13,6 +13,9 @@ async function bootstrap() {
     },
   });
   await app.listen();
+  console.log(`
+    🚀MSA Backend is running on port: 5000
+    `)
 }
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 bootstrap();
